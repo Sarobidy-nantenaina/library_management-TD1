@@ -18,6 +18,20 @@ paths:
           required: false
           schema:
             type: string
+        - in: query
+          name: releaseDateStart
+          description: Filter books by release date (start)
+          required: false
+          schema:
+              type: string
+              format: date
+        - in: query
+          name: releaseDateEnd
+          description: Filter books by release date (end)
+          required: false
+          schema:
+            type: string
+            format: date
       responses:
         200:
           description: The list of filtered books
