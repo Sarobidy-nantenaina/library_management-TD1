@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS subscriber(
+    id VARCHAR(50) PRIMARY KEY,
+    name VARCHAR(150) NOT NULL,
+    reference VARCHAR(50) NOT NULL
+);

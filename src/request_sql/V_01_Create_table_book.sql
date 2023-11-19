@@ -1,0 +1,13 @@
+CREATE TYPE topic AS ENUM ('COMEDY', 'ROMANCE', 'OTHER');
+
+CREATE TABLE IF NOT EXISTS book (
+  id VARCHAR(50) PRIMARY KEY,
+  bookName VARCHAR(255) NOT NULL,
+  pageNumbers INT NOT NULL,
+  topic VARCHAR(255) NOT NULL,
+  releaseDate DATE NOT NULL,
+  author_id VARCHAR(50) NOT NULL,
+  available BOOLEAN NOT NULL
+);
+
+
