@@ -1,0 +1,151 @@
+openapi: 3.0.3
+info:
+  title: Library API
+  version: 1.0.0
+  description: STD21084
+servers:
+  - url: https://library.com
+paths:
+  /books:
+    get:
+      summary: Get all books
+      description: The returned books are ordered by updated datetime.
+      operationId: getBooks
+      parameters:
+        - in: query
+          name: bookName
+          description: Filter return books by given name
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: releaseDateStart
+          description: Filter books by release date (start)
+          required: false
+          schema:
+              type: string
+              format: date
+        - in: query
+          name: releaseDateEnd
+          description: Filter books by release date (end)
+          required: false
+          schema:
+            type: string
+            format: date
+      responses:
+        200:
+          description: The list of filtered books
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+    put:
+      summary: Create or update a list of books
+      operationId: crupdateBooks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Book'
+      responses:
+        200:
+          description: The list of created or updated books
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+  /authors:
+    get:
+      summary: Get author filtered by name
+      description: The returned Author is ordered by name.
+      operationId: getAuthorByName
+      parameters:
+        - in: query
+          name: authorName
+          description: return author filtered by name
+          required: false
+          schema:
+            type: string
+      responses:
+        200:
+          description: Author retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Author'
+    put:
+      summary: Create or update a list of authors
+      operationId: crupdateAuthors
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Author'
+      responses:
+        200:
+          description: The list of created or updated authors
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Author'
+        404:
+          description: Author not found
+    delete:
+      summary: Delete an author
+      operationId: deleteAuthor
+      parameters:
+        - in: query
+          name: id
+          schema:
+            type: string
+          required: false
+          description: ID of the author to delete
+      responses:
+        200:
+          description: Author deleted successfully
+        404:
+          description: Author not found
+components:
+  schemas:
+    Book:
+      type: object
+      properties:
+        id:
+          type: string
+        bookName:
+          type: string
+        author:
+          $ref: '#/components/schemas/Author'
+        pageNumbers:
+          type: integer
+        topic:
+          type: string
+          enum:
+            - ROMANCE
+            - COMEDY
+            - OTHER
+        releaseDate:
+          type: string
+          format: date
+    Author:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        sex:
+          type: string
+          enum:
+            - M
+            - F

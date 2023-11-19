@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/first_project_librairie_management.iml" filepath="$PROJECT_DIR$/first_project_librairie_management.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/init-prog3.iml" filepath="$PROJECT_DIR$/init-prog3.iml" />
+>>>>>>> 36b1eddec75e7a9f6c5a195368fb3c7e700af05b
     </modules>
   </component>
 </project>

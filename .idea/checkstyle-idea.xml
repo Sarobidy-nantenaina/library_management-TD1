@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CheckStyle-IDEA" serialisationVersion="2">
+<<<<<<< HEAD
     <checkstyleVersion>10.12.1</checkstyleVersion>
     <scanScope>JavaOnly</scanScope>
     <copyLibs>true</copyLibs>
+=======
+    <checkstyleVersion>10.12.3</checkstyleVersion>
+    <scanScope>JavaOnly</scanScope>
+>>>>>>> 36b1eddec75e7a9f6c5a195368fb3c7e700af05b
     <option name="thirdPartyClasspath" />
     <option name="activeLocationIds" />
     <option name="locations">
